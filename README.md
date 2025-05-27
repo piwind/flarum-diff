@@ -11,6 +11,8 @@ This repository is a fork of [hasan-ozbey/flarum-diff](https://github.com/hasan-
 ### 改动说明
 
 - 删掉了原项目中的土耳其语tr，Sorry因为我个人看不懂
+- 已编辑这个按钮的位置很偏（button元素的padding导致的）
+- margin-top: -2px; 才是对的 不应该是-4
 - 
 
 ## Features
