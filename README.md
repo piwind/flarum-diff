@@ -11,9 +11,30 @@ This repository is a fork of [hasan-ozbey/flarum-diff](https://github.com/hasan-
 ### 改动说明
 
 - 删掉了原项目中的土耳其语tr，Sorry因为我个人看不懂
+
 - 已编辑这个按钮的位置很偏（button元素的padding导致的）
+
 - margin-top: -2px; 才是对的 不应该是-4
-- 
+
+- 【TODO】插件重置存在故障
+
+  ```
+  flarum.ERROR: PDOException: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails in /opt/flarum/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php:117
+  
+  Next Doctrine\DBAL\Driver\PDO\Exception: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails in /opt/flarum/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDO/Exception.php:18
+  
+  Next Illuminate\Database\QueryException: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (SQL: drop table if exists `flarum_post_edit_histories_archive`) in /opt/flarum/vendor/illuminate/database/Connection.php:712
+  ```
+
+- 【TODO】该插件会和Piwind\MoreBBCode插件存在冲突：
+
+  ```
+  flarum.ERROR: TypeError: Piwind\MoreBBCode\Rendering::reply2seeProcess(): Argument #3 ($discussion) must be of type Flarum\Discussion\Discussion, null given, called in /opt/flarum/vendor/piwind/flarum-more-bbcode/src/Rendering.php on line 46 and defined in /opt/flarum/vendor/piwind/flarum-more-bbcode/src/Rendering.php:75
+  ```
+
+- 【TODO】`@username`的元素没有被渲染
+
+
 
 ## Features
 
