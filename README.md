@@ -4,12 +4,14 @@
 
 This extension adds a "post revision history" feature to your [Flarum](https://github.com/flarum) forum.
 
-Screenshots:
+## About This Fork
 
-![Diff Collage](https://i.ibb.co/FJywHKn/rsz-diff-collage.png)
+This repository is a fork of [hasan-ozbey/flarum-diff](https://github.com/hasan-ozbey/flarum-diff).
 
-- [Post-Stream Item](https://i.ibb.co/4m21pnM/post-Stream-Item.png)
-- [Dropdown List](https://i.ibb.co/PTTcWCw/dropdown-List.png)
+### 改动说明
+
+- 删掉了原项目中的土耳其语tr，Sorry因为我个人看不懂
+- 
 
 ## Features
 
@@ -29,13 +31,15 @@ Also, it won't load (and cache) anything until you click the "Edited" button so 
 
 You can check your php version by running `php -v` and check if `iconv` is installed by running `php --ri iconv` (which should display `iconv support => enabled`).
 
-## Installation
+## Installation & Updating
+
+Install with composer:
 
 ```bash
 composer require the-turk/flarum-diff
 ```
 
-## Updating
+Updating:
 
 ```bash
 composer update the-turk/flarum-diff
@@ -52,6 +56,14 @@ Enable the extension and set the permissions. You're ready to go!
 If **x ≥ A** (where the **x** is post's revision count), first **y=mx+b** revisions for the post can be stored as merged & compressed `BLOB` in a new table (which is called `post_edit_histories_archive`). Specify the **A**, **m** and **b** from the settings modal. Float values of **y** will be rounded to the next lowest integer value. It's recommended to archive old revisions if you want to save storage volume but **_not recommended if you don't want to_**.
 
 If you want to archive old revisions, please consider enabling _cron job option_ from the settings modal. I set a weekly cron job which is working on sundays at 02:00 AM (nothing special) using `diff:archive` command**. Otherwise, it'll try to find & archive old revisions for the post as soon as `Post\Revised` event fires or wait for your `php flarum diff:archive` command. See [this discussion](https://discuss.flarum.org/d/24118-setup-the-flarum-scheduler-using-cron) for setting up the scheduler.
+
+## Screenshots
+
+![Diff Collage](https://i.ibb.co/FJywHKn/rsz-diff-collage.png)
+
+![Post-Stream Item](https://i.ibb.co/4m21pnM/post-Stream-Item.png)
+
+![Dropdown List](https://i.ibb.co/PTTcWCw/dropdown-List.png)
 
 ## Links
 
