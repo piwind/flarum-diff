@@ -29,7 +29,7 @@ php flarum cache:clear
 ## Features
 
 - Based on [jfcherng/php-diff](https://github.com/jfcherng/php-diff) repository (this one is forked from [chrisboulton/php-diff](https://github.com/chrisboulton/php-diff) since it's no longer maintained).
-- Option for **line** (default), **word** and **char** level diffs.
+- Option for **line**, **word** and **char** (default) level diffs.
 - Three render modes including "Inline", "Side By Side" & "Combined".
 - Archive old revisions using cron jobs or manually.
 - Delete revisions or rollback to certain revision.
@@ -111,10 +111,11 @@ If you want to archive old revisions, please consider enabling _cron job option_
   最后检查下来是：$this->commentPost->getFormatter()->render()的传参故障
   ```
 
-- 
+- 修改了默认设置
 
 ## Links
 
 - [Source code on GitHub](https://github.com/piwind/flarum-diff)
 - [Report an issue](https://github.com/piwind/flarum-diff/issues)
 - [Download via Packagist](https://packagist.org/packages/piwind/flarum-diff)
+

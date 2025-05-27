@@ -21,7 +21,7 @@ export default class DiffSettingsPage extends ExtensionPage {
               'label',
               Switch.component(
                 {
-                  state: this.setting(settingsPrefix + 'mainPostOnly', '0')() === '1',
+                  state: this.setting(settingsPrefix + 'mainPostOnly', '1')() === '1',
                   onchange: (value) => {
                     this.setting(settingsPrefix + 'mainPostOnly')(value ? '1' : '0');
                   },
@@ -70,7 +70,7 @@ export default class DiffSettingsPage extends ExtensionPage {
                   char: app.translator.trans(localePrefix + 'charLevel'),
                 },
                 onchange: this.setting(settingsPrefix + 'detailLevel'),
-                value: this.setting(settingsPrefix + 'detailLevel')() || this.setting(settingsPrefix + 'detailLevel')('line'),
+                value: this.setting(settingsPrefix + 'detailLevel')() || this.setting(settingsPrefix + 'detailLevel')('char'),
               })
             ),
           ]),
