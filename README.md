@@ -6,35 +6,7 @@ This extension adds a "post revision history" feature to your [Flarum](https://g
 
 ## About This Fork
 
-This repository is a fork of [hasan-ozbey/flarum-diff](https://github.com/hasan-ozbey/flarum-diff).
-
-### 改动说明
-
-- 删掉了原项目中的土耳其语tr，Sorry因为我个人看不懂
-
-- 已编辑这个按钮的位置很偏（button元素的padding导致的）
-
-- margin-top: -2px; 才是对的 不应该是-4
-
-- 【TODO】插件重置存在故障
-
-  ```
-  flarum.ERROR: PDOException: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails in /opt/flarum/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php:117
-  
-  Next Doctrine\DBAL\Driver\PDO\Exception: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails in /opt/flarum/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDO/Exception.php:18
-  
-  Next Illuminate\Database\QueryException: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (SQL: drop table if exists `flarum_post_edit_histories_archive`) in /opt/flarum/vendor/illuminate/database/Connection.php:712
-  ```
-
-- 【TODO】该插件会和Piwind\MoreBBCode插件存在冲突：
-
-  ```
-  flarum.ERROR: TypeError: Piwind\MoreBBCode\Rendering::reply2seeProcess(): Argument #3 ($discussion) must be of type Flarum\Discussion\Discussion, null given, called in /opt/flarum/vendor/piwind/flarum-more-bbcode/src/Rendering.php on line 46 and defined in /opt/flarum/vendor/piwind/flarum-more-bbcode/src/Rendering.php:75
-  ```
-
-- 【TODO】`@username`的元素没有被渲染
-
-
+This repository is a fork of [hasan-ozbey/flarum-diff](https://github.com/hasan-ozbey/flarum-diff). Refer to the changelog at the end for detailed modifications.
 
 ## Features
 
@@ -87,6 +59,41 @@ If you want to archive old revisions, please consider enabling _cron job option_
 ![Post-Stream Item](https://i.ibb.co/4m21pnM/post-Stream-Item.png)
 
 ![Dropdown List](https://i.ibb.co/PTTcWCw/dropdown-List.png)
+
+## 改动说明
+
+- 删掉了原项目中的土耳其语tr，Sorry因为我个人看不懂
+
+- 添加了中文翻译
+
+- 【已解决】已编辑这个按钮的位置很偏（button元素的padding导致的）
+
+- 【已解决】margin-top: -2px; 才是对的 不应该是-4
+
+- 【TODO】插件重置存在故障
+
+  ```
+  flarum.ERROR: PDOException: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails in /opt/flarum/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php:117
+  
+  Next Doctrine\DBAL\Driver\PDO\Exception: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails in /opt/flarum/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDO/Exception.php:18
+  
+  Next Illuminate\Database\QueryException: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (SQL: drop table if exists `flarum_post_edit_histories_archive`) in /opt/flarum/vendor/illuminate/database/Connection.php:712
+  ```
+
+- 【已解决】该插件会和Piwind\MoreBBCode插件存在冲突：
+
+  ```
+  flarum.ERROR: TypeError: Piwind\MoreBBCode\Rendering::reply2seeProcess(): Argument #3 ($discussion) must be of type Flarum\Discussion\Discussion, null given, called in /opt/flarum/vendor/piwind/flarum-more-bbcode/src/Rendering.php on line 46 and defined in /opt/flarum/vendor/piwind/flarum-more-bbcode/src/Rendering.php:75
+  ```
+
+- 【已解决】`@username`的元素没有被正确渲染，而是显示`@[已注销]`
+
+  ```
+  问题的关键在于：Mentions插件返回的值是core.lib.username.deleted_text
+  最后检查下来是：$this->commentPost->getFormatter()->render()的传参故障
+  ```
+
+- 
 
 ## Links
 
