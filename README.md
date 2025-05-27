@@ -8,6 +8,24 @@ This extension adds a "post revision history" feature to your [Flarum](https://g
 
 This repository is a fork of [hasan-ozbey/flarum-diff](https://github.com/hasan-ozbey/flarum-diff). Refer to the changelog at the end for detailed modifications.
 
+**目前版本（Diff 1.1.2）存在严重BUG：**
+
+插件初次安装完毕，并开启后，论坛系统会立马崩溃，在日志中看到如下：
+
+```
+[2025-05-26 14:37:35] flarum.ERROR: ReflectionException: Class "TheTurk\Diff\Listeners\PostActions" does not exist in /opt/flarum/vendor/illuminate/container/Container.php:877
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [TheTurk\Diff\Listeners\PostActions] does not exist. in /opt/flarum/vendor/illuminate/container/Container.php:879
+```
+
+该问题的核心是`TheTurk\Diff\Listeners\PostActions`这个类无法被正确加载，但是查看源码没有发现明显的问题
+
+**解决办法：**Flarum 可能缓存了错误的类信息，清理缓存以解决：
+
+```bash
+php flarum cache:clear
+```
+
 ## Features
 
 - Based on [jfcherng/php-diff](https://github.com/jfcherng/php-diff) repository (this one is forked from [chrisboulton/php-diff](https://github.com/chrisboulton/php-diff) since it's no longer maintained).
