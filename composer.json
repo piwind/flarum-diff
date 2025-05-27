@@ -1,5 +1,5 @@
 {
-  "name": "the-turk/flarum-diff",
+  "name": "piwind/flarum-diff",
   "description": "View post edit histories.",
   "keywords": [
     "flarum",
@@ -12,6 +12,12 @@
   "type": "flarum-extension",
   "license": "MIT",
   "authors": [
+    {
+      "name": "piwind",
+      "homepage": "https://github.com/piwind",
+      "email": "piwind95@outlook.com",
+      "role": "Developer"
+    },
     {
       "name": "Hasan Özbey",
       "email": "hasanoozbey@gmail.com",
@@ -33,9 +39,8 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/the-turk/flarum-diff/issues",
-    "source": "https://github.com/the-turk/flarum-diff",
-    "forum": "https://discuss.flarum.org/d/22779-diff-for-flarum"
+    "issues": "https://github.com/piwind/flarum-diff/issues",
+    "source": "https://github.com/piwind/flarum-diff"
   },
   "require": {
     "flarum/core": "^1.2.0",
@@ -47,7 +52,7 @@
   },
   "autoload": {
     "psr-4": {
-      "TheTurk\\Diff\\": "src/"
+      "Piwind\\Diff\\": "src/"
     }
   },
   "extra": {

@@ -1,9 +1,9 @@
 <?php
 
-namespace TheTurk\Diff\Repositories;
+namespace Piwind\Diff\Repositories;
 
 use Illuminate\Support\Arr;
-use TheTurk\Diff\Models\DiffArchive;
+use Piwind\Diff\Models\DiffArchive;
 
 class DiffArchiveRepository
 {

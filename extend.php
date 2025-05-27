@@ -8,7 +8,7 @@
  * with this source code.
  */
 
-namespace TheTurk\Diff;
+namespace Piwind\Diff;
 
 use Flarum\Api\Serializer\BasicPostSerializer;
 use Flarum\Api\Serializer\PostSerializer;
@@ -16,11 +16,11 @@ use Flarum\Extend;
 use Flarum\Foundation\Paths;
 use Flarum\Post\Post;
 use Illuminate\Console\Scheduling\Event;
-use TheTurk\Diff\Api\Controllers;
-use TheTurk\Diff\Api\Serializers\DiffSerializer;
-use TheTurk\Diff\Api\Serializers\SerializeDiffsOnPosts;
-use TheTurk\Diff\Console\ArchiveCommand;
-use TheTurk\Diff\Models\Diff;
+use Piwind\Diff\Api\Controllers;
+use Piwind\Diff\Api\Serializers\DiffSerializer;
+use Piwind\Diff\Api\Serializers\SerializeDiffsOnPosts;
+use Piwind\Diff\Console\ArchiveCommand;
+use Piwind\Diff\Models\Diff;
 
 return [
     (new Extend\Routes('api'))
@@ -60,7 +60,7 @@ return [
         ->attributes(SerializeDiffsOnPosts::class),
 
     (new Extend\Settings())
-        ->serializeToForum('textFormattingForDiffPreviews', 'the-turk-diff.textFormatting', 'boolVal', true),
+        ->serializeToForum('textFormattingForDiffPreviews', 'piwind-diff.textFormatting', 'boolVal', true),
 
     (new Extend\User())
         ->registerPreference('diffRenderer', 'strval', 'sideBySide'),

@@ -1,12 +1,12 @@
 <?php
 
-namespace TheTurk\Diff\Commands;
+namespace Piwind\Diff\Commands;
 
 use Carbon\Carbon;
 use Flarum\Post\PostRepository;
 use Flarum\User\Exception\PermissionDeniedException;
-use TheTurk\Diff\Models\Diff;
-use TheTurk\Diff\Repositories\DiffArchiveRepository;
+use Piwind\Diff\Models\Diff;
+use Piwind\Diff\Repositories\DiffArchiveRepository;
 
 class DeleteDiffHandler
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace TheTurk\Diff\Models;
+namespace Piwind\Diff\Models;
 
 use Flarum\Database\AbstractModel;
 

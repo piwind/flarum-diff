@@ -1,6 +1,6 @@
 <?php
 
-namespace TheTurk\Diff\Commands;
+namespace Piwind\Diff\Commands;
 
 use Flarum\User\User;
 

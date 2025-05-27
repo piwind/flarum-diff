@@ -1,6 +1,6 @@
 <?php
 
-namespace TheTurk\Diff\Api\Serializers;
+namespace Piwind\Diff\Api\Serializers;
 
 use Flarum\Api\Serializer\AbstractSerializer;
 use Flarum\Api\Serializer\BasicUserSerializer;
@@ -11,8 +11,8 @@ use Flarum\Settings\SettingsRepositoryInterface;
 use Jfcherng\Diff\Differ;
 use Jfcherng\Diff\Factory\RendererFactory;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use TheTurk\Diff\Models\Diff;
-use TheTurk\Diff\Repositories\DiffArchiveRepository;
+use Piwind\Diff\Models\Diff;
+use Piwind\Diff\Repositories\DiffArchiveRepository;
 
 class DiffSerializer extends AbstractSerializer
 {
@@ -194,7 +194,7 @@ class DiffSerializer extends AbstractSerializer
                     [
                         // how many neighbor lines do we want to show?
                         'context' => (int)
-                        $this->settings->get('the-turk-diff.neighborLines', 2),
+                        $this->settings->get('piwind-diff.neighborLines', 2),
                         // iGnoRe cAsE diFfErEnceS
                         'ignoreCase' => $ignoreCase,
                         // i g nore white spac e dif feren ces
@@ -205,23 +205,23 @@ class DiffSerializer extends AbstractSerializer
                 $rendererOptions = [
                     // line-level is the default level
                     'detailLevel' => $this->settings->get(
-                        'the-turk-diff.detailLevel',
+                        'piwind-diff.detailLevel',
                         'line'
                     ),
                     // show a separator between different diff hunks in HTML renderers
                     'separateBlock' => (bool) $this->settings->get(
-                        'the-turk-diff.separateBlock',
+                        'piwind-diff.separateBlock',
                         true
                     ),
                     'lineNumbers'    => false,
-                    'wrapperClasses' => ['TheTurkDiff', 'CustomDiff', 'diff-wrapper'],
+                    'wrapperClasses' => ['PiwindDiff', 'CustomDiff', 'diff-wrapper'],
                     // shows when there are no differences found between revisions
                     'resultForIdenticals' => '<div class="noDiff"><p>'
-                    .$this->translator->trans('the-turk-diff.forum.noDiff').
+                    .$this->translator->trans('piwind-diff.forum.noDiff').
                     '</p></div>',
                     // this option is just for Combined renderer
-                    'mergeThreshold' => \TheTurk\Diff\Jobs\ArchiveDiffs::sanitizeFloat($this->settings->get(
-                        'the-turk-diff.mergeThreshold',
+                    'mergeThreshold' => \Piwind\Diff\Jobs\ArchiveDiffs::sanitizeFloat($this->settings->get(
+                        'piwind-diff.mergeThreshold',
                         0.8
                     )),
                 ];
@@ -256,7 +256,7 @@ class DiffSerializer extends AbstractSerializer
      */
     public function formatter(string $content)
     {
-        if ($this->settings->get('the-turk-diff.textFormatting', true)) {
+        if ($this->settings->get('piwind-diff.textFormatting', true)) {
             return $this->commentPost->getFormatter()->render(
                 $this->commentPost->getFormatter()->parse(
                     $content,

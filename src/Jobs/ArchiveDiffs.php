@@ -1,12 +1,12 @@
 <?php
 
-namespace TheTurk\Diff\Jobs;
+namespace Piwind\Diff\Jobs;
 
 use Carbon\Carbon;
 use Flarum\Settings\SettingsRepositoryInterface;
 use Psr\Log\LoggerInterface;
-use TheTurk\Diff\Models\Diff;
-use TheTurk\Diff\Repositories\DiffArchiveRepository;
+use Piwind\Diff\Models\Diff;
+use Piwind\Diff\Repositories\DiffArchiveRepository;
 
 /**
  * We're using a linear equation (y=mx+b) where the x is post's revision count.
@@ -52,7 +52,7 @@ class ArchiveDiffs
 
         // this is the A value
         $this->revLimit = self::sanitizeFloat(
-            $settings->get('the-turk-diff.archiveLimit', 15)
+            $settings->get('piwind-diff.archiveLimit', 15)
         );
     }
 
@@ -69,11 +69,11 @@ class ArchiveDiffs
         }
         // this is the m value
         $slope = self::sanitizeFloat(
-            $this->settings->get('the-turk-diff.archiveSlope', 0.4)
+            $this->settings->get('piwind-diff.archiveSlope', 0.4)
         );
         // this is the b value
         $coefficient = self::sanitizeFloat(
-            $this->settings->get('the-turk-diff.archiveCoefficient', 0)
+            $this->settings->get('piwind-diff.archiveCoefficient', 0)
         );
         // y = mx + b
         // float values of y will be rounded to the next lowest integer value.
@@ -91,7 +91,7 @@ class ArchiveDiffs
                     // archive revisions one by one
                     foreach ($diffsToBeArchived as $diff) {
                         $this->log->info(
-                            "[the-turk/flarum-diff] |> archiving revision #{$diff->id} from post #{$postId}"
+                            "[piwind/flarum-diff] |> archiving revision #{$diff->id} from post #{$postId}"
                         );
 
                         $archiveContent = $this->diffArchive->archiveContent(
@@ -120,7 +120,7 @@ class ArchiveDiffs
     {
         $time = Carbon::now();
         $this->log->info(
-            "[the-turk/flarum-diff] |> archive post's revisions {$time}"
+            "[piwind/flarum-diff] |> archive post's revisions {$time}"
         );
         $postsToBeArchived = Diff::select('post_id')
             ->selectRaw('MAX(revision) AS revision')

@@ -1,6 +1,6 @@
 # Diff for Flarum
 
-[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/the-turk/flarum-diff/blob/master/LICENSE) [![Latest Stable Version](https://img.shields.io/packagist/v/the-turk/flarum-diff.svg)](https://packagist.org/packages/the-turk/flarum-diff) [![Total Downloads](https://img.shields.io/packagist/dt/the-turk/flarum-diff.svg)](https://packagist.org/packages/the-turk/flarum-diff)
+[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/piwind/flarum-diff/blob/master/LICENSE) [![Latest Stable Version](https://img.shields.io/packagist/v/piwind/flarum-diff.svg)](https://packagist.org/packages/piwind/flarum-diff) [![Total Downloads](https://img.shields.io/packagist/dt/piwind/flarum-diff.svg)](https://packagist.org/packages/piwind/flarum-diff)
 
 This extension adds a "post revision history" feature to your [Flarum](https://github.com/flarum) forum.
 
@@ -36,13 +36,13 @@ You can check your php version by running `php -v` and check if `iconv` is insta
 Install with composer:
 
 ```bash
-composer require the-turk/flarum-diff
+composer require piwind/flarum-diff
 ```
 
 Updating:
 
 ```bash
-composer update the-turk/flarum-diff
+composer update piwind/flarum-diff
 php flarum migrate
 php flarum cache:clear
 ```
@@ -67,8 +67,6 @@ If you want to archive old revisions, please consider enabling _cron job option_
 
 ## Links
 
-- [Flarum Discuss post](https://discuss.flarum.org/d/22779-diff-for-flarum)
-- [Source code on GitHub](https://github.com/the-turk/flarum-diff)
-- [Changelog](https://github.com/the-turk/blob/master/CHANGELOG.md)
-- [Report an issue](https://github.com/the-turk/flarum-diff/issues)
-- [Download via Packagist](https://packagist.org/packages/the-turk/flarum-diff)
+- [Source code on GitHub](https://github.com/piwind/flarum-diff)
+- [Report an issue](https://github.com/piwind/flarum-diff/issues)
+- [Download via Packagist](https://packagist.org/packages/piwind/flarum-diff)

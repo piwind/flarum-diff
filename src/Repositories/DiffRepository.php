@@ -1,8 +1,8 @@
 <?php
 
-namespace TheTurk\Diff\Repositories;
+namespace Piwind\Diff\Repositories;
 
-use TheTurk\Diff\Models\Diff;
+use Piwind\Diff\Models\Diff;
 
 class DiffRepository
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace TheTurk\Diff\Api\Controllers;
+namespace Piwind\Diff\Api\Controllers;
 
 use Flarum\Api\Controller\AbstractListController;
 use Flarum\Http\UrlGenerator;
 use Illuminate\Support\Arr;
 use Psr\Http\Message\ServerRequestInterface;
-use TheTurk\Diff\Api\Serializers\DiffSerializer;
-use TheTurk\Diff\Repositories\DiffRepository;
+use Piwind\Diff\Api\Serializers\DiffSerializer;
+use Piwind\Diff\Repositories\DiffRepository;
 use Tobscure\JsonApi\Document;
 
 class ListDiffController extends AbstractListController

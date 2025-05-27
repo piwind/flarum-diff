@@ -4,8 +4,8 @@ import Select from 'flarum/common/components/Select';
 import Switch from 'flarum/common/components/Switch';
 
 // just to make things easier
-const settingsPrefix = 'the-turk-diff.';
-const localePrefix = 'the-turk-diff.admin.settings.';
+const settingsPrefix = 'piwind-diff.';
+const localePrefix = 'piwind-diff.admin.settings.';
 
 export default class DiffSettingsPage extends ExtensionPage {
   oninit(vnode) {

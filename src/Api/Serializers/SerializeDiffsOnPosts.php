@@ -1,11 +1,11 @@
 <?php
 
-namespace TheTurk\Diff\Api\Serializers;
+namespace Piwind\Diff\Api\Serializers;
 
 use Flarum\Api\Serializer\PostSerializer;
 use Flarum\Extension\ExtensionManager;
 use Flarum\Post\Post;
-use TheTurk\Diff\Models\Diff;
+use Piwind\Diff\Models\Diff;
 
 class SerializeDiffsOnPosts
 {
