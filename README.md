@@ -70,6 +70,33 @@ If **x ≥ A** (where the **x** is post's revision count), first **y=mx+b** revi
 
 If you want to archive old revisions, please consider enabling _cron job option_ from the settings modal. I set a weekly cron job which is working on sundays at 02:00 AM (nothing special) using `diff:archive` command**. Otherwise, it'll try to find & archive old revisions for the post as soon as `Post\Revised` event fires or wait for your `php flarum diff:archive` command. See [this discussion](https://discuss.flarum.org/d/24118-setup-the-flarum-scheduler-using-cron) for setting up the scheduler.
 
+### 插件兼容问题
+
+**受影响的插件：**
+
+- 原生的Likes插件：[flarum/likes](https://github.com/flarum/framework/tree/main/extensions/likes)
+- 赞同、反对、点赞数排名：[fof/gamification](https://github.com/FriendsOfFlarum/gamification)
+- BBCode More：[piwind/flarum-more-bbcode](https://github.com/piwind/flarum-more-bbcode)
+- 帖子编辑记录：[piwind/flarum-diff](https://github.com/piwind/flarum-diff)
+
+**建议的配置和效果：**
+
+- flarum/likes：关闭插件
+
+  fof/gamification：开启
+
+  piwind/flarum-more-bbcode：关闭reply, like的功能，也就是关闭回复可见、点赞可见的功能，因此访问限制只有一个登录可见功能
+
+  piwind/flarum-diff：权限"查看编辑记录"，设置为"注册用户"，这样的话bbcode中的登录可见是不受影响的，因为只有注册用户才能看到编辑记录，也就只有登录才能看到登录可见
+
+- 用fof/gamification来替代flarum/likes，会导致基于flarum/likes的插件功能存在故障，比如piwind/flarum-more-bbcode中的点赞可见标签，会直接失效，所有人都可以看
+
+- flarum-diff的编辑记录，会在编辑记录的原始文本和预览中泄露所有bbcode预期的访问限制的内容，截图见下面
+
+- 如有需要（例如回复可见），可以将piwind/flarum-diff的"查看编辑记录"，设置为"管理组"，除了管理之外的用户看不了编辑记录，也就让访问限制按预期工作了
+
+- 观点：回复可见、点赞可见这类在当前互联网背景下已经不推荐用了，没有强烈需要按建议关闭即可。
+
 ## Screenshots
 
 ![Diff Collage](https://i.ibb.co/FJywHKn/rsz-diff-collage.png)
@@ -77,6 +104,8 @@ If you want to archive old revisions, please consider enabling _cron job option_
 ![Post-Stream Item](https://i.ibb.co/4m21pnM/post-Stream-Item.png)
 
 ![Dropdown List](https://i.ibb.co/PTTcWCw/dropdown-List.png)
+
+![image-20250528131350282](_MARKDOWN_ASSETS/README.assets/image-20250528131350282.png)
 
 ## 改动说明
 
